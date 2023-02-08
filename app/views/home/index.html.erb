@@ -1,2 +1,13 @@
-<h1>Welcome to Jumpstart!</h1>
-<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<h1>Welcome to LifeGame!</h1>
+<p class="lead">Game of Life with Stimulus JS.</p>
+<%= content_tag(:div, nil, data: {
+    controller: "life",
+}) do %>
+  <%= content_tag(:canvas, nil, data: {
+        life_target: "canvas"
+    }) %>
+  <br />
+  <%= button_tag "Start", data: { action: "click->life#start" }, id: "start_button", class: "btn btn-primary mt-2" %>
+  <%= button_tag "Clear", data: { action: "click->life#clear" }, class: "btn btn-warning mt-2" %>
+  <%= button_tag "Random", data: { action: "click->life#random"}, class: "btn btn-success mt-2"%>
+<% end %>
